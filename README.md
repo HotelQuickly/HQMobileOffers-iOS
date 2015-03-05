@@ -27,7 +27,9 @@ The HotelQuickly Cordova wrapper for third party integration of mobile/webview b
 5) Whilst still in the **Build Phases** section , press the '+' button in the **Link Binary With Libraries** section and choose `libCordova.a` from the dropdown list. Press **Add** to include it.
 ![alt tag](https://github.com/HotelQuickly/HQMobileOffers-iOS/blob/TutorialImages/HelpImages/Screen%20Shot%202015-03-04%20at%2018.45.04.png)
 
-6)The final step. The `HQOffersViewController` has everything you need and requires zero setting up in order to work as a dedicated view controller for displaying the Hotel Quickly offers webview. All you need to do is create a new view controller in your `xyz.storyboard` and change the class type to `HQOffersViewController`. No connections/outlets are required to be connected from the storyboard scene (the new view controller you just added). You're good to go. 
+
+6) The `HQOffersViewController` has everything you need and requires zero setting up in order to work as a dedicated view controller for displaying the Hotel Quickly offers webview. All you need to do is create a new view controller in your `xyz.storyboard` and change the class type to `HQOffersViewController`. No connections/outlets are required to be connected from the storyboard scene (the new view controller you just added). You're good to go. 
 ![alt tag](https://github.com/HotelQuickly/HQMobileOffers-iOS/blob/TutorialImages/HelpImages/Screen%20Shot%202015-03-04%20at%2018.45.29.png)
 
 
+7)The final step. **cmd+R**
