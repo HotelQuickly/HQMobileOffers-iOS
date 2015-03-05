@@ -24,7 +24,7 @@ The *HotelQuickly* Cordova wrapper for third party integration of mobile/webview
 ![alt tag](https://github.com/HotelQuickly/HQMobileOffers-iOS/blob/TutorialImages/HelpImages/Screen%20Shot%202015-03-04%20at%2018.43.48.png)
 
 
-5) Whilst still in the **Build Phases** section , press the '+' button in the **Link Binary With Libraries** section and choose `libCordova.a` from the dropdown list. Press **Add** to include it.
+5) Whilst still in the '**Build Phases**' section , press the '+' button in the '**Link Binary With Libraries**' section and choose `libCordova.a` from the dropdown list. Press '**Add**' to include it.
 ![alt tag](https://github.com/HotelQuickly/HQMobileOffers-iOS/blob/TutorialImages/HelpImages/Screen%20Shot%202015-03-04%20at%2018.45.04.png)
 
 
