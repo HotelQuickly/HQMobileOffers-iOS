@@ -1,7 +1,7 @@
 # HQMobileOffers-iOS
 The *HotelQuickly* Cordova wrapper for third party integration of mobile/webview based hotel offers
 
-##Integration into existing iOS project
+##Integration into an existing iOS project
 
 1) Download the project and add `HQMobileOffers-Bundle` to your existing project directory
 ![alt tag](https://github.com/HotelQuickly/HQMobileOffers-iOS/blob/TutorialImages/HelpImages/Screen%20Shot%202015-03-04%20at%2018.42.17.png)
