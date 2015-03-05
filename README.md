@@ -7,7 +7,7 @@ The *HotelQuickly* Cordova wrapper for third party integration of mobile/webview
 ![alt tag](https://github.com/HotelQuickly/HQMobileOffers-iOS/blob/TutorialImages/HelpImages/Screen%20Shot%202015-03-04%20at%2018.42.17.png)
 
 
-2) Inside the `HQMobileOffers-Bundle`directory, look for `HQOffersViewController.h`,`HQOffersViewController.m` and `config.xml`. Drag and drop these files into your X-code project window
+2) Inside the `HQMobileOffers-Bundle`directory, look for `HQOffersViewController.h`,`HQOffersViewController.m` and `config.xml`. Drag and drop these files into your Xcode project window
 ![alt tag](https://github.com/HotelQuickly/HQMobileOffers-iOS/blob/TutorialImages/HelpImages/Screen%20Shot%202015-03-04%20at%2019.09.28.png)
 ![alt tag](https://github.com/HotelQuickly/HQMobileOffers-iOS/blob/TutorialImages/HelpImages/Screen%20Shot%202015-03-04%20at%2018.42.49.png)
 
@@ -16,7 +16,7 @@ The *HotelQuickly* Cordova wrapper for third party integration of mobile/webview
 
 
 
-3) The last file you need to add to your X-code project window is `CordovaLib.xcodeproj`. This is found in the sub-directory `HQMobileOffers-Bundle/CordovaLib`
+3) The last file you need to add to your Xcode project window is `CordovaLib.xcodeproj`. This is found in the sub-directory `HQMobileOffers-Bundle/CordovaLib`
 ![alt tag](https://github.com/HotelQuickly/HQMobileOffers-iOS/blob/TutorialImages/HelpImages/Screen%20Shot%202015-03-04%20at%2018.43.09.png)
 
 
@@ -25,6 +25,8 @@ The *HotelQuickly* Cordova wrapper for third party integration of mobile/webview
 
 
 5) Whilst still in the '**Build Phases**' section , press the '+' button in the '**Link Binary With Libraries**' section and choose `libCordova.a` from the dropdown list. Press '**Add**' to include it.
+
+**NOTE!!** In order for the integration to compile, there are 3 other frameworks required. Most exiting application should already have these included, they are `MobileCoreServices.framework`, `CoreGraphics.framework` and `AssetsLibrary.framework`. If you don't already have them in your project, make sure to add them now.
 ![alt tag](https://github.com/HotelQuickly/HQMobileOffers-iOS/blob/TutorialImages/HelpImages/Screen%20Shot%202015-03-04%20at%2018.45.04.png)
 
 
