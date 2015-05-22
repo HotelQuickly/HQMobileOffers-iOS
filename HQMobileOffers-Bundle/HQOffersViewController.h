@@ -28,8 +28,13 @@
 #import <Cordova/CDVViewController.h>
 #import <Cordova/CDVCommandDelegateImpl.h>
 #import <Cordova/CDVCommandQueue.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface HQOffersViewController : CDVViewController
+@interface HQOffersViewController : CDVViewController <CLLocationManagerDelegate>
+@property BOOL shouldHideNavBar;
+@property (nonatomic,strong) CLLocationManager *locationManager;
+@property (nonatomic,strong) NSString *latitude;
+@property (nonatomic,strong) NSString *longitude;
 
 @end
 

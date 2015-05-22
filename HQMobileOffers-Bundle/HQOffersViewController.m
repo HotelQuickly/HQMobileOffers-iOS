@@ -34,7 +34,7 @@
 //
 
 #import "HQOffersViewController.h"
-
+#import "CordovaLib/Classes/CDVConfigParser.h"
 @implementation HQOffersViewController
 
 
@@ -58,7 +58,7 @@
         // _commandDelegate = [[MainCommandDelegate alloc] initWithViewController:self];
         // Uncomment to override the CDVCommandQueue used
         // _commandQueue = [[MainCommandQueue alloc] initWithViewController:self];
-    }
+          }
     return self;
 }
 
@@ -78,12 +78,39 @@
     // you can do so here.
     
     [super viewWillAppear:animated];
+    
+    [self setupLocationManager];
 }
+
+-(void)setupLocationManager
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.longitude = [defaults valueForKey:@"lastLon"];
+    self.latitude = [defaults valueForKey:@"lastlat"];
+    
+    if (self.longitude == nil || self.latitude == nil) {
+        self.longitude = @"0.0";
+        self.latitude = @"0.0";
+    }
+    
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    
+    [self.locationManager startUpdatingLocation];
+
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
 }
 
 - (void)viewDidUnload
@@ -108,6 +135,28 @@
  }
  */
 
+#pragma mark - CLLocationManager
+
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error retrieving your location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [errorAlert show];
+    NSLog(@"Error: %@",error.description);
+}
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation *crnLoc = [locations lastObject];
+    self.latitude = [NSString stringWithFormat:@"%f",crnLoc.coordinate.latitude];
+    self.longitude = [NSString stringWithFormat:@"%f",crnLoc.coordinate.longitude];
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:self.latitude forKey:@"lastLat"];
+    [defaults setValue:self.longitude forKey:@"latLon"];
+    [defaults synchronize];
+    
+}
+
 #pragma mark UIWebDelegate implementation
 
 - (void)webViewDidFinishLoad:(UIWebView*)theWebView
@@ -131,13 +180,24 @@
  {
  return [super webView:theWebView didFailLoadWithError:error];
  }
- 
- - (BOOL) webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType
- {
- return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
- }
  */
 
+ - (BOOL) webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType
+ {
+     
+     NSString *str = [NSString stringWithFormat:@"%@?language_code=%@&latitude=%@&longitude=%@&apiKey=%@",request.URL.relativeString,[self getLocale],self.latitude,self.longitude,self.settings[@"apikey"]];
+     
+     request = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
+     NSLog(@"LOCALE = %@ REQUEST = %@",[self getLocale],request);
+     
+     return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
+ }
+ 
+-(NSString *)getLocale{
+    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    return language;
+}
 @end
 
 @implementation MainCommandDelegate
