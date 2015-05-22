@@ -26,13 +26,15 @@ The *HotelQuickly* Cordova wrapper for third party integration of mobile/webview
 
 5) Whilst still in the '**Build Phases**' section , press the '+' button in the '**Link Binary With Libraries**' section and choose `libCordova.a` from the dropdown list. Press '**Add**' to include it.
 
-**NOTE!!** In order for the integration to compile, there are 3 other frameworks required. Most exiting application should already have these included, they are `MobileCoreServices.framework`, `CoreGraphics.framework` and `AssetsLibrary.framework`. If you don't already have them in your project, make sure to add them now.
+**NOTE!!** In order for the integration to compile, there are 3 other frameworks required. Most exiting application should already have these included, they are `MobileCoreServices.framework`, `CoreGraphics.framework`, `AssetsLibrary.framework` and `CoreLocation.framework`. If you don't already have them in your project, make sure to add them now.
 ![alt tag](https://github.com/HotelQuickly/HQMobileOffers-iOS/blob/TutorialImages/HelpImages/Screen%20Shot%202015-03-04%20at%2018.45.04.png)
 
+6) You should have received an API key from us. This needs to be added to the `Config.xml`. You should see the parameter `    <preference name="apikey" value="ADD_YOUR_API_KEY_HERE"/>`. Add your API key here. 
+![alt tag](https://github.com/HotelQuickly/HQMobileOffers-iOS/blob/TutorialImages/HelpImages/Screen%20Shot%202015-05-22%20at%2012.17.07.png)
 
-6) The `HQOffersViewController` has everything you need and requires zero setting up in order to work as a dedicated view controller for displaying the *Hotel Quickly* offers webview. All you need to do is create a new view controller in your `xyz.storyboard` and change the class type to `HQOffersViewController`. No connections/outlets are required to be connected from the storyboard scene (the new view controller you just added). You're good to go. 
+7) The `HQOffersViewController` has everything you need and requires zero setting up in order to work as a dedicated view controller for displaying the *Hotel Quickly* offers webview. All you need to do is create a new view controller in your `xyz.storyboard` and change the class type to `HQOffersViewController`. No connections/outlets are required to be connected from the storyboard scene (the new view controller you just added). You're good to go. 
 ![alt tag](https://github.com/HotelQuickly/HQMobileOffers-iOS/blob/TutorialImages/HelpImages/Screen%20Shot%202015-03-04%20at%2018.45.29.png)
 
 
-7) The final step. '**cmd+R**', navigate to the location you have added the `HQOffersViewController` in your application and you should see the *Hotel Quickly* offers webview load up.
+8) The final step. '**cmd+R**', navigate to the location you have added the `HQOffersViewController` in your application and you should see the *Hotel Quickly* offers webview load up.
 
